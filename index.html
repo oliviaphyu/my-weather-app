@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- css link -->
+    <link rel="stylesheet" href="src/style.css">
+
+    <!-- fontawesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="input-details" id="search-form">
+            <input type="text" id="city-input" autocomplete="off" name="text" class="input-box" placeholder="Enter a city to search">
+            <button id="btnSearch" class="search-btn"><div class="fas fa-search search-icon"></div></button>
+            <button class="location-btn"><div class="fa-solid fa-location-dot location-icon"></div></button>
+        </div>
+        <div class="city-details">
+            <h1 id="city">Yangon</h1>
+            <p id="date">Sunday 3:36</p>
+            <p>Mostly Sunny</p>
+        </div>
+        <div class="weather-container">
+            <div class="weather-icon">
+                <i class="fa-solid fa-cloud-sun suncloudbig-icon"></i> <p class="celcius" id="temp">19</p><span class="link-style"><a href="#" id="clink">℃</a>|<a href="#" id="flink">℉</a></span>
+            </div>
+            <div class="weather-details">
+                <ul>
+                    <li><i class="fa-solid fa-cloud-rain tiny-icon"></i> Precipitation: <span>0%</span></li>
+                    <li><i class="fa-solid fa-water tiny-icon"></i> Humidity: <span>39%</span></li>
+                    <li><i class="fa-solid fa-wind tiny-icon"></i> Wind: <span>18 km/h</span></li>
+                </ul>
+            </div>
+        </div>
+        
+        <br>
+        <div class="flex-container">
+            <div class="days-temp">
+                <p>Mon<i class="fa-solid fa-cloud-sun small-icon suncloud-icon"></i>37°
+                </p>
+            </div>
+            <div class="days-temp">
+                <p>Tue<i class="fa-solid fa-cloud-sun small-icon suncloud-icon"></i>37°
+                </p>
+            </div>
+            <div class="days-temp">
+                <p>Wed<i class="fa-solid fa-sun small-icon sun-icon"></i>38°
+                </p>
+            </div>
+            <div class="days-temp">
+                <p>Thurs<i class="fa-solid fa-cloud-sun small-icon suncloud-icon"></i>38°
+                </p>
+            </div>
+            <div class="days-temp">
+                <p>Fri <i class="fa-solid fa-cloud small-icon cloud-icon"></i>36°
+                </p>
+            </div>
+        </div>
+        <p class="author">
+            Coded by <span class="author-name">Phyu Sin Lin</span>.
+        </p>
+    </div>
+
+    <script src="src/script.js"></script>
+    
+</body>
+</html>
