@@ -1,4 +1,4 @@
-// Display current Day and Time
+//Display current Day and Time
 function formatDate(curdate) {
     let hours = curdate.getHours();
     if (hours < 10) {
@@ -27,7 +27,37 @@ function formatDate(curdate) {
   let currentdate = new Date();
   dateElement.innerHTML = formatDate(currentdate);
   
- 
+function formatRandomDate(timestamp){
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  return `${day} ${hours}:${minutes}`;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
   
   // SheCodes Plus Week 5 Homework
   function displayCityTemp(response) {
@@ -50,8 +80,7 @@ function formatDate(curdate) {
     let windspeed = Math.round(response.data.wind.speed);
     wind.innerHTML = `${windspeed} km/h`;
 
-    // let dateElement = document.querySelector("#date");
-    // dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    
 
     let iconElement = document.querySelector("#icon");
     iconElement.setAttribute(
@@ -60,7 +89,8 @@ function formatDate(curdate) {
     );
     iconElement.setAttribute("alt", response.data.weather[0].description);
 
-    
+    let dateElement = document.querySelector("#date");
+    dateElement.innerHTML = formatRandomDate(response.data.dt * 1000);
   }
   
   function browseCity(getCity) {
