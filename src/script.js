@@ -47,7 +47,8 @@ function formatDate(curdate) {
   
   // SheCodes Plus Week 5 Homework
   function displayCityTemp(response) {
-    //console.log(response);
+    console.log(response);
+
     let setCity = document.querySelector("#city");
     setCity.innerHTML = response.data.name;
   
@@ -63,6 +64,18 @@ function formatDate(curdate) {
     let wind = document.querySelector("#wind");
     let windspeed = Math.round(response.data.wind.speed);
     wind.innerHTML = `${windspeed} km/h`;
+
+    // let dateElement = document.querySelector("#date");
+    // dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute(
+      "src", 
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    iconElement.setAttribute("alt", response.data.weather[0].description);
+
+    
   }
   
   function browseCity(getCity) {
