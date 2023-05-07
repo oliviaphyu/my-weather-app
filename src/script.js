@@ -27,27 +27,12 @@ function formatDate(curdate) {
   let currentdate = new Date();
   dateElement.innerHTML = formatDate(currentdate);
   
-  // // Convert celcius to fahrenheit
-  // function celciusToFahrenheit(event) {
-  //   let tempElement = document.querySelector("#temp");
-  //   tempElement.innerHTML = 66;
-  // }
-  
-  // let flink = document.querySelector("#flink");
-  // flink.addEventListener("click", celciusToFahrenheit);
-  
-  // // Convert fahrenheit to Celcius
-  // function fahrenheitToCelcius(event) {
-  //   let tempElement = document.querySelector("#temp");
-  //   tempElement.innerHTML = 19;
-  // }
-  
-  // let clink = document.querySelector("#clink");
-  // clink.addEventListener("click", fahrenheitToCelcius);
+ 
   
   // SheCodes Plus Week 5 Homework
   function displayCityTemp(response) {
     console.log(response);
+    celciusTemp = response.data.main.temp;
 
     let setCity = document.querySelector("#city");
     setCity.innerHTML = response.data.name;
@@ -111,4 +96,28 @@ function formatDate(curdate) {
   
   let btnLocation = document.querySelector("#btnLocation");
   btnLocation.addEventListener("click", getCurrentLocation);
+
+   // Convert celcius to fahrenheit
+  function celciusToFahrenheit(event) {
+    clink.classList.remove("active");
+    flink.classList.add("active");
+    let tempElement = document.querySelector("#temp");
+    let fahrenheitTemp = (celciusTemp * 9) / 5 + 32;
+    tempElement.innerHTML = Math.round(fahrenheitTemp);
+  }
+  
+  let flink = document.querySelector("#flink");
+  flink.addEventListener("click", celciusToFahrenheit);
+  
+  // Convert fahrenheit to Celcius
+  function fahrenheitToCelcius(event) {
+    clink.classList.add("active");
+    flink.classList.remove("active");
+    let tempElement = document.querySelector("#temp");
+    tempElement.innerHTML = Math.round(celciusTemp);
+  }
+
+  let celciusTemp = null;
+  let clink = document.querySelector("#clink");
+  clink.addEventListener("click", fahrenheitToCelcius);
   

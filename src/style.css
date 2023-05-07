@@ -108,11 +108,15 @@
     font-weight: 600;
   }
   
-  .link-style a {
+  .link-style a{
     cursor: pointer;
     text-decoration: none;
-    color: #236197;
+    color: black;
     margin: 0 3px;
+  }
+
+  .link-style .active{
+    color: #236197;
   }
   
   .weather-details {
