@@ -196,5 +196,6 @@ function getForecast(coordinates){
   let celciusTemp = null;
   let clink = document.querySelector("#clink");
   clink.addEventListener("click", fahrenheitToCelcius);
+  browseCity("Yangon");
   //displayForecast();
   
