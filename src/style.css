@@ -159,6 +159,25 @@
   .flex-container .days-temp:hover {
     box-shadow: 1px 6px 8px rgba(0, 0, 0, 0.3);
   }
+
+  .flex-container .days-temp .weather-forecast-temperatures{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .weather-forecast-date {
+    font-size: 16px;
+    opacity: 0.8;
+  }
+  
+  .weather-forecast-temp-min {
+    opacity: 0.8;
+  }
+  
+  .weather-forecast-temperatures {
+    font-size: 14px;
+  }
   
   .small-icon {
     font-size: 20px;
