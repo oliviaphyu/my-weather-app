@@ -135,6 +135,11 @@
   .weather-details span {
     color: #2e79ba;
   }
+
+  .weather-forecast{
+    margin-top: 20px;
+    text-align: center;
+  }
   
   .flex-container {
     /* background: #2E79BA; */

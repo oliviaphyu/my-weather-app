@@ -58,6 +58,41 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+
+function displayForecast(response){
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Mon", "Thu", "Fri", "Sat", "Sun"];
+
+  let forecastHTML = `<div class="flex-container">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+        <div class="days-temp">
+            <div class="weather-forecast-date">
+              ${day}
+            </div>
+            <img src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="42">
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temp-max"> 18° </span>
+              <span class="weather-forecast-temp-min"> 12° </span>
+            </div>
+        </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
+function getForecast(coordinates){
+  console.log(coordinates);
+  let apiKey = "f3887e262c88d1158f7e2ef4998e234c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
   
   // SheCodes Plus Week 5 Homework
   function displayCityTemp(response) {
@@ -91,6 +126,8 @@ function formatDay(timestamp) {
 
     let dateElement = document.querySelector("#date");
     dateElement.innerHTML = formatRandomDate(response.data.dt * 1000);
+
+    getForecast(response.data.coord);
   }
   
   function browseCity(getCity) {
@@ -150,4 +187,5 @@ function formatDay(timestamp) {
   let celciusTemp = null;
   let clink = document.querySelector("#clink");
   clink.addEventListener("click", fahrenheitToCelcius);
+  //displayForecast();
   
